@@ -1,0 +1,300 @@
+package academia;
+
+
+public class Academia {
+
+    
+   
+    public static void main(String[] args) {
+       Consulta c = new Consulta("Pedro", "21/03","10:30");
+       BateriaDeExercicios bde = new BateriaDeExercicios("Pedro", " \nPolichinelo \nCorrida \nBicicleta","21/04","18:00",300.0 );
+       Refeicao r = new Refeicao("Pedro","21/03","12:00","Batata Doce com Frango",220.0);
+       
+       c.marcarConsulta();
+       c.mostrarStatus();
+       
+       System.out.println("");
+       
+       bde.Exercicios();
+       bde.mostrarStatus();
+        System.out.println("");
+        
+        r.Almoco();
+        r.mostrarStatus();
+       
+    
+    }
+    
+}
+
+package academia;
+
+
+public class Consulta implements Eventos {
+  String cliente;  
+  String data;  
+  String hora;
+  String dados;
+
+    public Consulta(String cliente, String data, String hora ) {
+        this.cliente = cliente;
+        this.data = data;
+        this.hora = hora;
+        
+        
+    }
+    
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+    public String getDados(){
+        return "Refeição do cliente" + this.cliente + "marcada para" + this.data + " "+ this.hora;
+    }
+    public void mostrarStatus(){
+        System.out.println("Cliente: " + this.getCliente());
+        System.out.println("Data: " + this.getData());
+        System.out.println("Hora: "+ this.getHora());
+    }
+    
+
+    @Override
+    public void marcarConsulta() {
+        this.getDados();
+        
+    }
+
+    @Override
+    public void Exercicios() {
+       
+    }
+
+    @Override
+    public void Almoco() {
+        
+    }
+   
+   
+   
+
+    
+
+  
+}
+
+package academia;
+
+import java.util.List;
+
+
+public class BateriaDeExercicios implements  Eventos {
+    private String cliente;
+    private String exercicios;
+    private String data;
+    private String hora;
+    private List<String> exercicio;
+    private double caloriasPerdidas;
+    private String dados;
+    
+    
+
+    public BateriaDeExercicios(String cliente, String exercicios, String data, String hora, double caloriasPerdidas) {
+        this.cliente = cliente;
+        this.exercicios = exercicios;
+        this.data = data;
+        this.hora = hora;
+        this.caloriasPerdidas = caloriasPerdidas;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getExercicios() {
+        return exercicios;
+    }
+
+    public void setExercicios(String exercicios) {
+        this.exercicios = exercicios;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public double getCaloriasPerdidas() {
+        return caloriasPerdidas;
+    }
+
+    public void setCaloriasPerdidas(double caloriasPerdidas) {
+        this.caloriasPerdidas = caloriasPerdidas;
+    }
+    public String getDados(){
+        return "Bateria de Exercicios do Cliente " + this.cliente + "marcada para" + this.data + " "+ this.hora;
+    }
+    public void mostrarStatus(){
+        System.out.println("Cliente: " + this.getCliente());
+        System.out.println("Exercicios: "+ this.getExercicios());
+        System.out.println("Data: " + this.getData());
+        System.out.println("Hora: "+ this.getHora());
+        System.out.println("Calorias Perdidas: " + this.getCaloriasPerdidas());
+        
+    }
+
+    @Override
+    public void marcarConsulta() {
+        
+    }
+
+    @Override
+    public void Exercicios() {
+        this.getDados();
+    }
+
+    @Override
+    public void Almoco() {
+       
+    }
+    
+    
+    
+}
+
+package academia;
+
+public class Refeicao implements Eventos {
+   
+   String cliente;
+   String data;
+   String hora;
+   String dados;
+   String nomeDaReifeicao;
+   double caloriasGanhas;
+  
+
+    public Refeicao(String cliente, String data, String hora, String nomeDaReifeicao, double caloriasGanhas) {
+        this.cliente = cliente;
+        this.data = data;
+        this.hora = hora;
+        this.nomeDaReifeicao = nomeDaReifeicao;
+        this.caloriasGanhas = caloriasGanhas;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public String getNomeDaReifeicao() {
+        return nomeDaReifeicao;
+    }
+
+    public void setNomeDaReifeicao(String nomeDaReifeicao) {
+        this.nomeDaReifeicao = nomeDaReifeicao;
+    }
+
+    public double getCaloriasGanhas() {
+        return caloriasGanhas;
+    }
+
+    public void setCaloriasGanhas(double caloriasGanhas) {
+        this.caloriasGanhas = caloriasGanhas;
+    }
+    public String getDados(){
+        return "Refeição do cliente" + this.cliente + "marcada para" + this.data + " "+ this.hora;
+    }
+    public void mostrarStatus(){
+        System.out.println("Cliente: " + this.getCliente());
+        System.out.println("Data: " + this.getData());
+        System.out.println("Hora: "+ this.getHora());
+        System.out.println("Nome da refeição: " + this.nomeDaReifeicao);
+     
+    
+    
+   
+   
+}
+    
+
+    @Override
+    public void marcarConsulta() {
+        
+    }
+
+    @Override
+    public void Exercicios() {
+        
+    }
+
+    @Override
+    public void Almoco() {
+        this.getDados();
+    }
+
+}
+
+package academia;
+
+
+public interface Eventos  {
+    
+     public abstract void marcarConsulta();
+     
+     public abstract void Exercicios();
+     
+     public abstract void Almoco();
+}
